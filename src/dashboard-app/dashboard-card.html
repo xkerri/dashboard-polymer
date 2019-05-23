@@ -4,28 +4,25 @@
   <template>
     <style>
       :host {
-        display: block;
+        font-family: sans-serif;
       }
     </style>
-  </template>
 
+    <h1>dashboard-card</h1>
+  </template>
   <script>
-    /**
-     * @customElement
-     * @polymer
-     */
-    class DashboardApp extends Polymer.Element {
+    class DashboardCard extends Polymer.Element {
       static get is() {
         return "dashboard-card";
       }
       static get properties() {
         return {
-          cardProp: {
-            type: String,
-            value: "cardProp"
+          firstName: {
+            type: String
           }
         };
       }
     }
+    customElements.define(DashboardCard.is, DashboardCard);
   </script>
 </dom-module>

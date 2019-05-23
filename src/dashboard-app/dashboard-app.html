@@ -3,6 +3,7 @@
   rel="import"
   href="../../bower_components/polymer/lib/elements/dom-repeat.html"
 />
+<link rel="import" href="./dashboard-card.html" />
 
 <dom-module id="dashboard-app">
   <template>
@@ -60,6 +61,8 @@
       </div>
     </div> -->
 
+    <!-- <dashboard-card></dashboard-card> -->
+
     <div class="card-container">
       <dom-repeat as="card" items="[[cards]]">
         <template>
@@ -77,6 +80,8 @@
         </template>
       </dom-repeat>
     </div>
+
+    <dashboard-card></dashboard-card>
   </template>
 
   <script>

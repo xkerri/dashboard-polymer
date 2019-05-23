@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html" />
+
+<dom-module id="dashboard-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class DashboardApp extends Polymer.Element {
+      static get is() {
+        return "dashboard-card";
+      }
+      static get properties() {
+        return {
+          cardProp: {
+            type: String,
+            value: "cardProp"
+          }
+        };
+      }
+    }
+  </script>
+</dom-module>

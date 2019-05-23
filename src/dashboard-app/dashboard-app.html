@@ -1,0 +1,170 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html" />
+<link
+  rel="import"
+  href="../../bower_components/polymer/lib/elements/dom-repeat.html"
+/>
+
+<dom-module id="dashboard-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        margin: 10px 20px;
+        width: 380px;
+        height: 225px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      }
+    </style>
+
+    <!-- <div class="card-container">
+      <div class="card">
+        <h3><strong>[[prop2.title]]</strong></h3>
+        <h1>[[prop2.subtitle]]</h1>
+        <p>[[prop2.description]]</p>
+      </div>
+
+      <div class="card">
+        <h3><strong>Actualiza tu token ahora</strong></h3>
+        <a href="[[prop2.link.url]]">[[prop2.link.text]]</a>
+      </div>
+
+      <div class="card">
+        <h3><strong>Cuenta Digital 40156</strong></h3>
+        <h1>[[prop2.subtitle]]</h1>
+        <p>Disponible</p>
+      </div>
+
+      <div class="card">
+        <h3><strong>FondooUNO 87894</strong></h3>
+        <h1>$10</h1>
+        <p>Saldo</p>
+      </div>
+
+      <div class="card">
+        <h3><strong>Prueba 87908</strong></h3>
+        <h1>[[prop2.subtitle]]</h1>
+        <p>Saldo</p>
+        <a href="[[prop2.link.url]]">Crea tus apartados</a>
+      </div>
+    </div> -->
+
+    <div class="card-container">
+      <dom-repeat as="card" items="[[cards]]">
+        <template>
+          <div class="card">
+            <h3><strong>[[card.title]]</strong></h3>
+            <h1>[[card.subtitle]]</h1>
+            <p>[[card.description]]</p>
+            <dom-repeat as="option" items="[[card.options]]">
+              <template>
+                <span>[[option]]</span>
+              </template>
+            </dom-repeat>
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </template>
+      </dom-repeat>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class DashboardApp extends Polymer.Element {
+      static get is() {
+        return "dashboard-app";
+      }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: "dashboard-app"
+          },
+          prop2: {
+            type: Object,
+            value: function() {
+              return {
+                title: "Tarjeta de crédito",
+                subtitle: "No disponible",
+                description: "Saldo actual",
+                link: {
+                  text: "¡Me interesa!",
+                  url: "http://www.google.com"
+                },
+                bookmark: {
+                  color: "orange",
+                  icon: "fa-alicorn" //de fontawesome
+                }
+              };
+            }
+          },
+          cards: {
+            type: Array,
+            value: () => {
+              return [
+                {
+                  title: "Tarjeta de crédito",
+                  subtitle: "No disponible",
+                  description: "Saldo actual",
+                  link: {
+                    text: "¡TDC Me interesa!",
+                    url: "http://www.google.com"
+                  },
+                  bookmark: {
+                    color: "orange",
+                    icon: "fa-alicorn" //de fontawesome
+                  },
+                  options: [1, 2, 3, 4, 5]
+                },
+                {
+                  title: "Tarjeta de debito",
+                  subtitle: "No disponible",
+                  description: "Saldo actual",
+                  link: {
+                    text: "¡TDD Me interesa!",
+                    url: "http://www.google.com"
+                  },
+                  bookmark: {
+                    color: "orange",
+                    icon: "fa-alicorn" //de fontawesome
+                  },
+                  options: [1, 2, 3, 4, 5]
+                },
+                {
+                  title: "Tarjeta de vales",
+                  subtitle: "No disponible",
+                  description: "Saldo actual",
+                  link: {
+                    text: "¡TDV Me interesa!",
+                    url: "http://www.google.com"
+                  },
+                  bookmark: {
+                    color: "orange",
+                    icon: "fa-alicorn" //de fontawesome
+                  },
+                  options: [1, 2, 3, 4, 5]
+                }
+              ];
+            }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DashboardApp.is, DashboardApp);
+  </script>
+</dom-module>
